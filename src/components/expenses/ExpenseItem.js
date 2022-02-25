@@ -1,18 +1,14 @@
 // ExpenseItem.js
-import React, { useState } from "react";
+import React from "react";
 import ExpenseDate from './ExpenseDate.js';
 import './ExpenseItem.css'
 import Card from '../UI/Card';
 
 const ExpenseItem = (props) => {
-    const [title, setTitle] = useState(props.title);
-    
-    const handleClick = () => {
-        setTitle('updated') 
-    };
     
     // receiving the specific item of title and amount from the Expenses component that had the entire array of data passed to it as a prop
     return(
+        <li>
         <Card className='expense-item'>
             {/* passing the date field by way of the information passed from Expenses */}
             <ExpenseDate 
@@ -20,11 +16,11 @@ const ExpenseItem = (props) => {
                date={props.date}     
             />
             <div className='expense-item__description'>
-                <h2>{title}</h2>
+                <h2>{props.title}</h2>
                 <div className='expense-item__price'>${props.amount}</div>
             </div>   
-            <button onClick={handleClick}>Change Title</button>
         </Card>
+        </li>
     )
 }
 
