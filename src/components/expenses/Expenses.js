@@ -4,6 +4,7 @@ import './Expense.css';
 import Card from '../UI/Card';
 import ExpensesFilter from "./ExpensesFilter";
 import ExpensesList from "./ExpensesList";
+import ExpensesChart from "./ExpensesChart";
 
 const Expenses = (props) => {
 
@@ -28,6 +29,7 @@ const Expenses = (props) => {
         <Card className='expenses'>
             {/* controlled component = both the value and changes to the value are not handled in the component but in the parent component*/}
             <ExpensesFilter onSaveUserYear={saveYearHandler} selected={userYear}/>
+            <ExpensesChart expenses={filteredExpenses}/>
             <ExpensesList filteredExpenses={filteredExpenses}/>                
         </Card>
        
